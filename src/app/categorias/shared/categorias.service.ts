@@ -16,11 +16,17 @@ categoriasRef: AngularFireList< any>;
     return this .categoriasRef.push(categoria);
   }
 
-  update (categoria: any, key: string){
-
+  update (categoria: any, key: string) {
+    return this .categoriasRef.update(key, categoria);
   }
 
-  getByKey(key: string){
+  getByKey(key: string) {
+    const path = 'categorias/'+key;
+    return this .db.object(path).snapshotChanges().pipe(
+      map(change => {
+        return ({ key: change.key, ...change.payload.val() });
+      })
+    );
 
   }
 

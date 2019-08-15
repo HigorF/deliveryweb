@@ -1,0 +1,35 @@
+<h3>Produtos</h3>
+<hr>
+<div class="card">
+  <div class="card-header text-right">
+    <a class="btn btn-primary" role="button" [routerLink]="['/produtos/novo']">Novo produto</a>
+  </div>
+  <div class="card-body">
+    <table class="table grid">
+      <thead>
+        <tr>
+
+          <th scope="col">Nome</th>
+          <th scope="col">Descricao</th>
+          <th scope="col">Valor</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let produto of produtos | async" >
+
+          <td>{{ c.nome }}</td>
+          <td>{{ categoria.descricao }}</td>
+          <td>{{ categoria.valor }}</td>
+          <td class="edit">
+            <a class="btn btn-warning text-white" role="button" [routerLink]="['/produtos/editar', produto.key]"><i class="far fa-edit">Editar</i></a>
+          </td>
+          <td class="delete">
+            <button class="btn btn-danger" (click)="remover(produto.key)"><i class="far fa-trash-alt">Excluir</i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
