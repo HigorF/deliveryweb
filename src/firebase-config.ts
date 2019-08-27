@@ -3,7 +3,7 @@ export const firebaseconfig = {
     authDomain: "deliverywebangular.firebaseapp.com",
     databaseURL: "https://deliverywebangular.firebaseio.com",
     projectId: "deliverywebangular",
-    storageBucket: "",
+    storageBucket: "deliverywebangular.appspot.com",
     messagingSenderId: "549370307251",
     appId: "1:549370307251:web:87998412bcc119d8"
 }
