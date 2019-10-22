@@ -12,8 +12,9 @@ categoriasRef: AngularFireList< any>;
     this .categoriasRef = this .db.list('categorias/');
    }
 
+   //quando receber o parametro, criar uma variável para armazena-los
   insert (categoria: any){
-    return this .categoriasRef.push(categoria);
+    return this .categoriasRef.push(categoria); //categoriasRef é a ligação do banco
   }
 
   update (categoria: any, key: string) {

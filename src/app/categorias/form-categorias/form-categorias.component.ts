@@ -14,18 +14,20 @@ formCategoria: FormGroup;
 key: string;
 
   constructor(private formBuilder:FormBuilder,
-    private route:ActivatedRoute,
-    private categoriasService: CategoriasService,
-    private toastr: ToastrService,
-    private router: Router
+                                  private route:ActivatedRoute,
+                                  private categoriasService: CategoriasService,
+                                  private toastr: ToastrService,
+                                  private router: Router
     ) { }
+    //serve para abrir o formulário vazio ou para abrir editando, trazendo uma key
   ngOnInit() {
     this.criarFormulario();
     this.key = this.route.snapshot.paramMap.get('key');
+
     if (this.key) {
       const categoriaSubscribe = this.categoriasService.getByKey(this.key)
       .subscribe((categorias:any) =>  {
-
+        //setvalue trás a key do banco para preencher os campos
         categoriaSubscribe.unsubscribe();
         this .formCategoria.setValue({nome:categorias.nome, descricao:categorias.descricao});
       });
@@ -35,10 +37,11 @@ key: string;
   get nome(){ return this.formCategoria.get('nome'); }
   get descricao() { return this.formCategoria.get('descricao'); }
 
+
 criarFormulario(){
   this.key = null;
-  this.formCategoria = this.formBuilder.group({
-    nome: ['', Validators.required],
+  this.formCategoria = this.formBuilder.group({ //formbuilder é responsável pelo agrupamento das variáveis do formgroup (no caso "nome e descrição")
+    nome: ['', Validators.required], //usar validators é quando você quer que algum campo seja preenchido, obrigátoriamente
     descricao: [''],
   });
 }

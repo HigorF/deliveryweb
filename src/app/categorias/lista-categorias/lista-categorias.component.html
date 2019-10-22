@@ -16,6 +16,7 @@
         </tr>
       </thead>
       <tbody>
+        <!--ngfor é o laço de repetição que contriu a listagem da lista de categorias-->
         <tr *ngFor="let categoria of categorias | async" >
           <th scope="row">{{categoria.key}}</th>
           <td>{{ categoria.nome }}</td>

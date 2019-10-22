@@ -1,9 +1,9 @@
 export const firebaseconfig = {
-  apiKey: "AIzaSyBGXfTXdEDW24ku499LVBg6jkp8mM4V5wE",
-    authDomain: "deliverywebangular.firebaseapp.com",
-    databaseURL: "https://deliverywebangular.firebaseio.com",
-    projectId: "deliverywebangular",
-    storageBucket: "deliverywebangular.appspot.com",
-    messagingSenderId: "549370307251",
-    appId: "1:549370307251:web:87998412bcc119d8"
+  apiKey: "AIzaSyD5kATn6XHEoEaEBt2xGIEpL7WW52Hv8Hg",
+  authDomain: "vendamaq-2aa08.firebaseapp.com",
+  databaseURL: "https://vendamaq-2aa08.firebaseio.com",
+  projectId: "vendamaq-2aa08",
+  storageBucket: "vendamaq-2aa08.appspot.com",
+  messagingSenderId: "454992856305",
+  appId: "1:454992856305:web:e122d0fd9924cf34891550"
 }

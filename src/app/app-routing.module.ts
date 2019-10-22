@@ -23,7 +23,7 @@ const routes: Routes = [
       { path: 'categorias/nova', component: FormCategoriasComponent},
       { path: 'categorias/editar/:key', component: FormCategoriasComponent},
       { path: 'produtos', component: ListaProdutosComponent},
-      { path: 'produto/novo', component: FormProdutosComponent},
+      { path: 'produtos/novo', component: FormProdutosComponent},
       { path: 'produtos/editar/:key', component: FormProdutosComponent}
     ]
   },

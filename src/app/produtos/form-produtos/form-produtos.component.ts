@@ -41,11 +41,11 @@ export class FormProdutosComponent implements OnInit {
           categoriaKey: produtos.categoriaKey,
           categoriaNome: produtos.categoriaNome,
           img: ''
-      });
+        });
 
-      this.imgUrl = produtos.img || '';
-      this.filePath = produtos.filePath || '';
-    });
+        this.imgUrl = produtos.img || '';
+        this.filePath = produtos.filePath || '';
+      });
     }
   }
 
@@ -67,8 +67,8 @@ export class FormProdutosComponent implements OnInit {
     });
 
     this.file = null;
-      this.imgUrl = '';
-      this.filePath = '';
+    this.imgUrl = '';
+    this.filePath = '';
 
   }
 

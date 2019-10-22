@@ -7,25 +7,20 @@ import { AngularFireStorage } from '@angular/fire/storage';
   providedIn: 'root'
 })
 export class ProdutosService {
- // insert(value: any): any {
-  //  throw new Error("Method not implemented.");
-
   produtosRef: AngularFireList<any>;
 
-  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) {
+  constructor(private db: AngularFireDatabase,  private storage: AngularFireStorage) {
     this.produtosRef = this.db.list('produtos/');
    }
 
   inserir(produto: any) {
    // return this.produtosRef.push (produto);
-    return this.save(produto, null);
-
+   return this.save(produto, null);
   }
 
   update(produto: any, key: string) {
    // return this.produtosRef.update(key, produto);
-    return this.save(produto, key);
-
+   return this.save(produto, key);
   }
 
   private save(produto: any, key: string) {
@@ -69,15 +64,15 @@ export class ProdutosService {
   getProdutosByProdutos(key: string) {
   }
 
-  remove(key: string, filePath: string) {
-    this.produtosRef.remove(key);
-    if (filePath) {
-      this.removeImg(filePath, key, false);
-    }
+  remove(key: string,  filePath: string) {
+   this.produtosRef.remove(key);
+   if (filePath) {
+    this.removeImg(filePath, key, false);
   }
+}
 
   uploadImg(key: string, file: File) {
-    const filePath = 'produto/'+key;
+    const filePath = 'produtos/' + key;
     const ref = this.storage.ref(filePath);
     const task = ref.put(file);
     task.snapshotChanges().pipe(
@@ -89,12 +84,11 @@ export class ProdutosService {
     ).subscribe();
   }
 
-  removeImg(filePath: string, key:string, atualizarProduto: boolean = true){
+  removeImg(filePath: string, key: string, atualizarProduto: boolean = true){
     const ref = this.storage.ref(filePath);
     ref.delete();
     if (atualizarProduto) {
       this.produtosRef.update(key, {img: '', filePath: ''});
     }
   }
-
 }
