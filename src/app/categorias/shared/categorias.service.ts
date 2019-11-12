@@ -39,6 +39,16 @@ categoriasRef: AngularFireList< any>;
     )
   }
 
+  getProdutosByCategoria(key: string) {
+    return this.db.list('produtos/', q => q.orderByChild('categoriaKey').equalTo(key))
+    .snapshotChanges()
+    .pipe(
+      map(changes => {
+        return changes.map(m => ({ key: m.key }))
+      })
+    )
+  }
+
   remove(key: string) {
   // return new Promise((resolve, reject) => {
     //   const subscribe = this.getProdutosByCategoria(key).subscribe((produtos: any) => {
